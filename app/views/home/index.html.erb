@@ -1,0 +1,24 @@
+<h1>Hello World!</h1>
+<p>This is my first Rails App!</p>
+
+<br/><br/>
+
+<% @coins %>
+
+<% for x in @coins %>
+    <% for coin in @my_coins %>
+        <% if coin == x["symbol"] %>
+            <%= x["name"] %>: $<%= x["price_usd"] %><br/>
+            Rank: <%= x["rank"] %><br/><br/>
+        <% end %>
+    <% end %>
+<% end %>
+
+<br/>
+
+
+
+        
+
+
+
