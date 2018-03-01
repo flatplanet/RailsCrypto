@@ -1,0 +1,33 @@
+<%= form_for(@crypto) do |f| %>
+  <% if @crypto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crypto.errors.count, "error") %> prohibited this crypto from being saved:</h2>
+
+      <ul>
+      <% @crypto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :symbol %><br>
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    
+    <%= f.number_field :user_id, value: current_user.id, type: "hidden" %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_per %><br>
+    <%= f.text_field :cost_per %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_owned %><br>
+    <%= f.text_field :amount_owned %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
